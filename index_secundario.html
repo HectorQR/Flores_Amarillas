@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartas Personalizadas</title>
+    <title>Página Secundaria</title>
     <link rel="stylesheet" href="style_secundario.css">
 </head>
 <body>
-    <!-- Bienvenida personalizada -->
     <h1 id="welcome-message">Bienvenida</h1>
 
-    
     <div class="cards-container">
         <div class="card" onclick="flipCard(this)">
             <div class="card-inner">
@@ -60,18 +58,17 @@
 
     <a href="index_flores.html" class="floating-button">VER ANIMACIÓN</a>
 
-    <!-- Cargar el script secundario y obtener el nombre del usuario desde localStorage -->
-    <script src="script_secundario.js"></script>
+    <!-- Script para cargar los mensajes y verificar el usuario -->
     <script>
-        // Obtener el nombre del usuario desde localStorage y mostrar la bienvenida
         const user = localStorage.getItem('user');
+        console.log('Usuario recuperado en index_secundario:', user);
         if (user) {
-            document.getElementById('welcome-message').innerText = `Bienvenida ${user.charAt(0).toUpperCase() + user.slice(1)}!`;
+            document.getElementById('welcome-message').innerText = `Bienvenida ${user}!`;
             loadMessages(user); // Llamar a la función que carga los mensajes
         } else {
-            // Redirigir a la página principal si no hay usuario en localStorage
-            window.location.href = 'index.html';
+            window.location.href = 'index.html'; // Redirigir a la página principal si no hay usuario
         }
     </script>
+    <script src="script_secundario.js"></script>
 </body>
 </html>

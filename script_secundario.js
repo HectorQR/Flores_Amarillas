@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const user = urlParams.get('user');
+  const user = localStorage.getItem('user');
+  console.log('Usuario recuperado:', user);
 
   const messagesMishel = [
       "¿Sabías que las flores más lindas son las que florecen en los corazones tiernos? ¡Y el tuyo es un jardín entero! 🌼",
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   // Verifica si el usuario es Mishel o Andrea, y selecciona los mensajes correspondientes
-  const messages = user === "mishel" ? messagesMishel : messagesAndrea;
+  const messages = user.toLowerCase() === "mishel" ? messagesMishel : messagesAndrea;
 
   // Colocar los mensajes personalizados
   document.getElementById('message1').textContent = messages[0];
@@ -27,17 +27,4 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('message3').textContent = messages[2];
   document.getElementById('message4').textContent = messages[3];
   document.getElementById('message5').textContent = messages[4];
-
-  // Bienvenida personalizada
-  const welcomeMessage = document.getElementById('welcome-message');
-  welcomeMessage.textContent = `Bienvenida ${user.charAt(0).toUpperCase() + user.slice(1)}!`;
-});
-
-// Manejar el volteo de las cartas
-const cards = document.querySelectorAll('.card-inner');
-
-cards.forEach(card => {
-  card.addEventListener('click', () => {
-    card.classList.toggle('is-flipped');
-  });
 });
