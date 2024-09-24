@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartas Personalizadas</title>
+    <link rel="stylesheet" href="style_secundario.css">
+</head>
+<body>
+    <!-- Bienvenida personalizada -->
+    <h1 id="welcome-message">Bienvenida</h1>
+
+    
+    <div class="cards-container">
+        <div class="card" onclick="flipCard(this)">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/girasolAmarillo.avif" alt="Girasol">
+                </div>
+                <div class="card-back" id="message1"></div>
+            </div>
+        </div>
+
+        <div class="card" onclick="flipCard(this)">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/girasolAmarillo.avif" alt="Girasol">
+                </div>
+                <div class="card-back" id="message2"></div>
+            </div>
+        </div>
+
+        <div class="card" onclick="flipCard(this)">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/girasolAmarillo.avif" alt="Girasol">
+                </div>
+                <div class="card-back" id="message3"></div>
+            </div>
+        </div>
+
+        <div class="card" onclick="flipCard(this)">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/girasolAmarillo.avif" alt="Girasol">
+                </div>
+                <div class="card-back" id="message4"></div>
+            </div>
+        </div>
+
+        <div class="card" onclick="flipCard(this)">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/girasolAmarillo.avif" alt="Girasol">
+                </div>
+                <div class="card-back" id="message5"></div>
+            </div>
+        </div>
+    </div>
+
+    <a href="index.html" class="floating-button">VER ANIMACIÓN</a>
+
+    <!-- Cargar el script secundario y obtener el nombre del usuario desde localStorage -->
+    <script src="script_secundario.js"></script>
+    <script>
+        // Obtener el nombre del usuario desde localStorage y mostrar la bienvenida
+        const user = localStorage.getItem('user');
+        if (user) {
+            document.getElementById('welcome-message').innerText = `Bienvenida ${user.charAt(0).toUpperCase() + user.slice(1)}!`;
+            loadMessages(user); // Llamar a la función que carga los mensajes
+        } else {
+            // Redirigir a la página principal si no hay usuario en localStorage
+            window.location.href = 'index_Principal.html';
+        }
+    </script>
+</body>
+</html>
