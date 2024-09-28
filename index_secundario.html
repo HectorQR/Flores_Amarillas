@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Secundaria</title>
+    <title>Cartas Personalizadas</title>
     <link rel="stylesheet" href="style_secundario.css">
 </head>
 <body>
+    <!-- Bienvenida personalizada -->
     <h1 id="welcome-message">Bienvenida</h1>
-
+    
     <div class="cards-container">
         <div class="card" onclick="flipCard(this)">
             <div class="card-inner">
@@ -18,7 +19,6 @@
                 <div class="card-back" id="message1"></div>
             </div>
         </div>
-
         <div class="card" onclick="flipCard(this)">
             <div class="card-inner">
                 <div class="card-front">
@@ -27,7 +27,6 @@
                 <div class="card-back" id="message2"></div>
             </div>
         </div>
-
         <div class="card" onclick="flipCard(this)">
             <div class="card-inner">
                 <div class="card-front">
@@ -36,7 +35,6 @@
                 <div class="card-back" id="message3"></div>
             </div>
         </div>
-
         <div class="card" onclick="flipCard(this)">
             <div class="card-inner">
                 <div class="card-front">
@@ -45,7 +43,6 @@
                 <div class="card-back" id="message4"></div>
             </div>
         </div>
-
         <div class="card" onclick="flipCard(this)">
             <div class="card-inner">
                 <div class="card-front">
@@ -55,20 +52,19 @@
             </div>
         </div>
     </div>
-
     <a href="index_flores.html" class="floating-button">VER ANIMACIÓN</a>
-
-    <!-- Script para cargar los mensajes y verificar el usuario -->
+    <!-- Cargar el script secundario y obtener el nombre del usuario desde localStorage -->
+    <script src="script_secundario.js"></script>
     <script>
+        // Obtener el nombre del usuario desde localStorage y mostrar la bienvenida
         const user = localStorage.getItem('user');
-        console.log('Usuario recuperado en index_secundario:', user);
         if (user) {
-            document.getElementById('welcome-message').innerText = `Bienvenida ${user}!`;
+            document.getElementById('welcome-message').innerText = `Bienvenida ${user.charAt(0).toUpperCase() + user.slice(1)}!`;
             loadMessages(user); // Llamar a la función que carga los mensajes
         } else {
-            window.location.href = 'index.html'; // Redirigir a la página principal si no hay usuario
+            // Redirigir a la página principal si no hay usuario en localStorage
+            window.location.href = 'index_Principal.html';
         }
     </script>
-    <script src="script_secundario.js"></script>
 </body>
 </html>

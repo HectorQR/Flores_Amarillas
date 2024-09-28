@@ -1,15 +1,12 @@
 document.getElementById('accessForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita que el formulario se envíe por defecto
-
     const username = document.getElementById('username').value.trim().toLowerCase();
     const keyword = document.getElementById('keyword').value.trim();
     const errorMessage = document.getElementById('error-message');
-
     const users = {
-        "mishel": "12345",
+        "mishel": "22222",
         "andrea": "6789"
     };
-
     if (users[username] && users[username] === keyword) {
         document.querySelector('.form-container').classList.add('animate__fadeOut');
         setTimeout(() => {
